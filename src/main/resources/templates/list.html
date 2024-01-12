@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Sucursales</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Sucursales</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>País</th>
+        <th>Tipo</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="sucursal : ${sucursales}">
+        <td th:text="${sucursal.pk_SucursalID}"></td>
+        <td th:text="${sucursal.nombreSucursal}"></td>
+        <td th:text="${sucursal.paisSucursal}"></td>
+        <td th:text="${sucursal.tipoSucursal}"></td>
+        <td>
+            <a th:href="@{'/web/sucursales/edit/' + ${sucursal.pk_SucursalID}}">Editar</a>
+            <a th:href="@{'/web/sucursales/delete/' + ${sucursal.pk_SucursalID}}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+<a href="/web/sucursales/form">Crear Nueva Sucursal</a>
+</body>
+</html>

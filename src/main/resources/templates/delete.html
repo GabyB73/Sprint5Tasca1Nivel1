@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Sucursal</title>
+</head>
+<body>
+<h1>Delete Sucursal</h1>
+<p>Are you sure you want to delete this sucursal?</p>
+<form th:action="@{/web/sucursales/delete/{id}}" method="post">
+    <button type="submit">Delete</button>
+</form>
+<a href="/web/sucursales/list">Cancel</a>
+</body>
+</html>
